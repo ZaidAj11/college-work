@@ -5,6 +5,11 @@ using System.Linq;
 class Canvas
 {
     public List<Shape> canvas = new List<Shape>(); // List of shapes -> the canvas
+    public List<Shape> canvasState = new List<Shape>(); // List of shapes -> the canvas
+
+    public List<Shape> canvasPriorState = new List<Shape>(); // List of shapes -> the canvas
+
+
     public int width = 0;
     public int height = 0;
     public Canvas(int width, int height)
@@ -14,12 +19,14 @@ class Canvas
     }
     public void AddShape(Shape shape) // Add a shape
     {
+        canvasPriorState = canvas.ToList();
         canvas.Add(shape);
-    } 
+        
+    }
 
     public void MoveDown(int shape, int layer) // Move down in Z index
     {
-            
+
         Shape[] arr = canvas.ToArray();
         int index = 0;
         for (int i = 0; i < arr.Length; i++)
@@ -52,7 +59,7 @@ class Canvas
             if (arr[i].GetId() == shape) index = i; // Where our shape is right now
         }
 
-        for (int i = index; i < arr.Length-1; i++) // Then swap it until we get our desired layer
+        for (int i = index; i < arr.Length - 1; i++) // Then swap it until we get our desired layer
         {
             if (i == layer) break;
             else
@@ -76,7 +83,7 @@ class Canvas
         Shape[] arr = canvas.ToArray();
 
         string code = $"<svg width = \"285\" height = \"350\" viewBox=\"0 0 285 350\" >";
-        for (int i = 0; i <= arr.Length-1; i++)
+        for (int i = 0; i <= arr.Length - 1; i++)
         {
             code += Environment.NewLine;
             code += arr[i].ToCode();
@@ -112,6 +119,20 @@ class Canvas
         canvas = new List<Shape>(list);
         return canvas;
 
+    }
+
+    public List<Shape> undoShape() 
+    {
+        canvasState = canvas.ToList();
+        canvas = canvasPriorState;
+        return canvas;
+
+    }
+
+    public List<Shape> redoShape() 
+    {
+        canvas = canvasState;
+        return canvas;
     }
 }
 

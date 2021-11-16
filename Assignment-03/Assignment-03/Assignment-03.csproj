@@ -47,7 +47,6 @@
     <Compile Include="Circle.cs" />
     <Compile Include="Ellipse.cs" />
     <Compile Include="Line.cs" />
-    <Compile Include="Memento.cs" />
     <Compile Include="Path.cs" />
     <Compile Include="Polygon.cs" />
     <Compile Include="Polyline.cs" />

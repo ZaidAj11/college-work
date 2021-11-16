@@ -30,7 +30,5 @@ class Memento : Shape
             state = memento.savedCanvasState;
         }
     }
-
-     
 }
 

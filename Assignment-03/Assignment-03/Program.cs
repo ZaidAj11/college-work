@@ -17,16 +17,6 @@ class Program
         pLine.Add("230,150");
         pLine.Add("290,250");
 
-
-
-        // Creating shapes
-        Circle myCirc = new Circle(50,50,50);
-        Rectangle myRec = new Rectangle(100, 50 , 75, 75);
-        Line myLine = new Line(100, 300, 400, 340);
-        Ellipse myEllipse = new Ellipse(100,100,100,100);
-        Polyline myPolyline = new Polyline(pLine);
-        Polygon myPolygon = new Polygon(pLine);
-
         // Creating path is a little different
         Path myPath = new Path("150 0");
         myPath.AddInstruction("L");
@@ -35,12 +25,12 @@ class Program
         myPath.AddPoint("225 200");
 
         //Add Shapes to canvas
-        canvas.AddShape(myLine);
-        canvas.AddShape(myRec); 
-        canvas.AddShape(myCirc);
-        canvas.AddShape(myPolygon);
-        canvas.AddShape(myEllipse);
-        canvas.AddShape(myPolyline);
+        canvas.AddShape(new Line(100, 300, 400, 340));
+        canvas.AddShape(new Rectangle(100, 50 , 75, 75)); 
+        canvas.AddShape(new Circle(50,50,50));
+        canvas.AddShape(new Polygon(pLine));
+        canvas.AddShape(new Ellipse(100,100,100,100));
+        canvas.AddShape(new Polyline(pLine));
         canvas.AddShape(myPath);
 
         // Showing canvas before we start editing
@@ -48,11 +38,11 @@ class Program
         canvas.ReturnList(); 
 
         //Controlling stack order 
-        canvas.MoveDown(myLine.GetId(), 0);
-        canvas.MoveUp(myPolygon.GetId(), 4); // you get the gist
+        /*canvas.MoveDown(myLine.GetId(), 0);
+        canvas.MoveUp(myPolygon.GetId(), 4); // you get the gist*/
 
         // Editing shape attributs
-        myPolygon.EditPoint(1, "300,20"); 
+        /*myPolygon.EditPoint(1, "300,20"); 
         myCirc.fill = "yellow";
         myRec.x = 230;
         myPath.UpdatePathCommand(3, "H"); // Was 'L', made it 'H'
@@ -63,7 +53,10 @@ class Program
 
         // Deleting shapes          
         canvas.DeleteShape(myCirc.GetId()); // Will delete circle
-        canvas.DeleteShape(myPolyline.GetId()); // Will delete polyline, you get the gist
+        canvas.DeleteShape(myPolyline.GetId()); // Will delete polyline, you get the gist*/
+
+        canvas.undoShape();
+        Console.WriteLine(canvas.CanvasToSVG());
 
         Console.WriteLine();
         Console.WriteLine("-----------------------------------------------------------------");
@@ -72,7 +65,7 @@ class Program
         // Outputs
         Console.WriteLine("After:");
         canvas.ReturnList();
-        try
+        /*try
         {
             File.WriteAllText(SVGOut, canvas.CanvasToSVG());
         }catch(System.IO.DirectoryNotFoundException e)
@@ -82,7 +75,7 @@ class Program
             Console.WriteLine("Please use Developer powershell to run");
             Console.WriteLine("****************************************");
     
-        }
+        }*/
 
 
     }

@@ -9,4 +9,5 @@ X:\cs264\college-work\Assignment-03\Assignment-03\obj\Debug\Assignment-03.exe
 X:\cs264\college-work\Assignment-03\Assignment-03\obj\Debug\Assignment-03.pdb
 X:\cs264\college-work\Assignment-03\Assignment-03\bin\Debug\Assignment-03.exe
 X:\cs264\college-work\Assignment-03\Assignment-03\bin\Debug\Assignment-03.pdb
-X:\cs264\college-work\Assignment-03\Assignment-03\obj\Debug\Assignment-03.csprojResolveAssemblyReference.cache
+X:\cs264\college-work\Assignment-03\Assignment-03\obj\Debug\Assignment-03.csproj.AssemblyReference.cache
+X:\cs264\college-work\Assignment-03\Assignment-03\obj\Debug\Assignment-03.csproj.CoreCompileInputs.cache
