@@ -58,6 +58,7 @@ class Program
         canvas.undoShape();
         Console.WriteLine(canvas.CanvasToSVG());
 
+
         Console.WriteLine();
         Console.WriteLine("-----------------------------------------------------------------");
         Console.WriteLine();
@@ -65,6 +66,15 @@ class Program
         // Outputs
         Console.WriteLine("After:");
         canvas.ReturnList();
+
+        Console.WriteLine();
+        Console.WriteLine("-----------------------------------------------------------------");
+        Console.WriteLine();
+
+        canvas.redoShape();
+        canvas.ReturnList();
+
+
         /*try
         {
             File.WriteAllText(SVGOut, canvas.CanvasToSVG());
