@@ -8,6 +8,7 @@ class Program
     {
         // Making canvas of 285 by 350
         Canvas canvas = new Canvas(285,350);
+        
         string SVGOut = @"Assignment-02/canvas.svg";
         // Create list to hold poly points
         List<string> pLine = new List<string>();
@@ -27,11 +28,11 @@ class Program
         //Add Shapes to canvas
         canvas.AddShape(new Line(100, 300, 400, 340));
         canvas.AddShape(new Rectangle(100, 50 , 75, 75)); 
-        canvas.AddShape(new Circle(50,50,50));
+        /*canvas.AddShape(new Circle(50,50,50));
         canvas.AddShape(new Polygon(pLine));
         canvas.AddShape(new Ellipse(100,100,100,100));
         canvas.AddShape(new Polyline(pLine));
-        canvas.AddShape(myPath);
+        canvas.AddShape(myPath);*/
 
         // Showing canvas before we start editing
         Console.WriteLine("Before:");
@@ -55,7 +56,6 @@ class Program
         canvas.DeleteShape(myCirc.GetId()); // Will delete circle
         canvas.DeleteShape(myPolyline.GetId()); // Will delete polyline, you get the gist*/
 
-        canvas.undoShape();
         Console.WriteLine(canvas.CanvasToSVG());
 
 
@@ -65,6 +65,7 @@ class Program
 
         // Outputs
         Console.WriteLine("After:");
+        canvas.undoShape();
         canvas.ReturnList();
 
         Console.WriteLine();

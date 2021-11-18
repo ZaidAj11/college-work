@@ -5,11 +5,10 @@ using System.Linq;
 class Canvas
 {
     public List<Shape> canvas = new List<Shape>(); // List of shapes -> the canvas
-    public Stack<Shape> canvasState = new Stack<Shape>(); // List of shapes -> the canvas
 
-    public Stack<Shape> tempRedo = new Stack<Shape>(); // List of shapes -> the canvas
+    Stack<List<Shape>> states = new Stack<List<Shape>>();
+    Stack<List<Shape>> redoStates = new Stack<List<Shape>>();
 
-  
     public int width = 0;
     public int height = 0;
     public Canvas(int width, int height)
@@ -19,7 +18,8 @@ class Canvas
     }
     public void AddShape(Shape shape) // Add a shape
     {
-        canvasState.Push(shape);
+        List<Shape> temp = canvas.ToList();
+        states.Push(temp);
         canvas.Add(shape);
         
     }
@@ -123,22 +123,18 @@ class Canvas
 
     public List<Shape> undoShape()
     {
-        Shape temp = canvasState.Pop();
-        tempRedo.Push(temp);
-        List<Shape> tempCanvas = canvasState.ToList();
+        List<Shape> tempCanvas = states.Pop();
+        redoStates.Push(canvas);
         canvas = tempCanvas;
-        canvas.Reverse();
         return canvas;
 
     }
 
     public List<Shape> redoShape()
     {
-        Shape temp = tempRedo.Pop();
-        canvasState.Push(temp);
-        List<Shape> tempCanvas = canvasState.ToList();
+        List<Shape> tempCanvas = redoStates.Pop();
+        states.Push(canvas);
         canvas = tempCanvas;
-        canvas.Reverse();
         return canvas;
     }
 }

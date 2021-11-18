@@ -1,20 +1,20 @@
 ﻿<Properties StartupConfiguration="{0B847ADB-8FA8-4CEE-ACE3-AF5A412B148D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment-03/undoRedo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment-03/Canvas.cs">
     <Files>
       <File FileName="Assignment-03/Ellipse.cs" Line="1" Column="1" />
       <File FileName="Assignment-03/Polygon.cs" />
       <File FileName="Assignment-03/Polyline.cs" />
       <File FileName="Assignment-03/Rectangle.cs" />
-      <File FileName="Assignment-03/Program.cs" />
-      <File FileName="Assignment-03/Canvas.cs" Line="8" Column="22" />
-      <File FileName="Assignment-03/undoRedo.cs" Line="4" Column="1" />
+      <File FileName="Assignment-03/Program.cs" Line="11" Column="9" />
+      <File FileName="Assignment-03/undoRedo.cs" Line="13" Column="6" />
+      <File FileName="Assignment-03/Canvas.cs" Line="13" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Assignment-03" expanded="True">
             <Node name="Assignment-03" expanded="True">
-              <Node name="undoRedo.cs" selected="True" />
+              <Node name="Canvas.cs" selected="True" />
             </Node>
           </Node>
         </State>
